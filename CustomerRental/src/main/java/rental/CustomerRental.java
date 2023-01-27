@@ -28,15 +28,15 @@ public class CustomerRental {
 		int frequentRenterPoints = 0;
 		String result = "Rental Record for " + getName() + "\n";
 		for (Rental each : _rentals) {
-			double thisAmount = each.getPrice();
+			//double thisAmount = each.getPrice();
 //add frequent renter points
 			frequentRenterPoints++;
 //add bonus for a two-day new release rental
 			if ((each.getMovie().getCategory() == Movie.NEW_RELEASE) && each.getDaysRented() > 1)
 				frequentRenterPoints++;
 //show figures for this rental
-			result += each.getMovie().getTitle() + "\t" + thisAmount + "\n";
-			totalAmount += thisAmount;
+			result += each.getMovie().getTitle() + "\t" + each.getPrice() + "\n";
+			totalAmount += each.getPrice();
 		} // end of loop
 //add footer lines
 		result += "Amount owed is " + totalAmount + "\n";
